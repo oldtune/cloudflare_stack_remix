@@ -1,4 +1,5 @@
 /** @type {import('@remix-run/dev').AppConfig} */
+const { createRoutesFromFolders } = require("@remix-run/v1-route-convention");
 module.exports = {
   devServerBroadcastDelay: 1000,
   ignoredRouteFiles: ["**/.*"],
@@ -10,13 +11,16 @@ module.exports = {
   serverMinify: true,
   serverModuleFormat: "esm",
   serverPlatform: "neutral",
+  routes(defineRoutes) {
+    return createRoutesFromFolders(defineRoutes);
+  },
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
   future: {
-    v2_errorBoundary: true,
-    v2_meta: true,
-    v2_normalizeFormMethod: true,
+    // v2_errorBoundary: true,
+    // v2_meta: true,
+    // v2_normalizeFormMethod: true,
     v2_routeConvention: true,
   },
 };
